@@ -65,44 +65,47 @@ const Tasks = () => {
         ''
       )}
       <div className="d-flex gap-5 flex-wrap justify-content-center align-items-center">
-        {filteredTasks.map((task) => (
-          <article
-            key={task.id}
-            style={{ width: '18rem' }}
-            className="border rounded p-3 mb-3"
-          >
-            <div>
-              <h4>{task.title}</h4>
-              <p style={{ overflow: 'auto' }}>
-                <strong> Description:</strong> {task.description}
-              </p>
-              <p>
-                <strong>Due Date:</strong> {task.dueDate}
-              </p>
-              <p>
-                <strong> Status:</strong> {task.status}
-              </p>
-            </div>
+        {filteredTasks
+          .slice()
+          .reverse()
+          .map((task) => (
+            <article
+              key={task.id}
+              style={{ width: '18rem' }}
+              className="border rounded p-3 mb-3"
+            >
+              <div>
+                <h4>{task.title}</h4>
+                <p style={{ overflow: 'auto' }}>
+                  <strong> Description:</strong> {task.description}
+                </p>
+                <p>
+                  <strong>Due Date:</strong> {task.dueDate}
+                </p>
+                <p>
+                  <strong> Status:</strong> {task.status}
+                </p>
+              </div>
 
-            <div className="d-flex justify-content-between align-items-center mt-3">
-              <Button
-                variant="danger"
-                onClick={() => dispatch(removeTaskItem(task.id))}
-                size="sm"
-                className="mr-3"
-              >
-                <FaTrash />
-              </Button>
-              <Button
-                variant="primary"
-                size="sm"
-                onClick={() => handleEditClick(task)}
-              >
-                <FaPen />
-              </Button>
-            </div>
-          </article>
-        ))}
+              <div className="d-flex justify-content-between align-items-center mt-3">
+                <Button
+                  variant="danger"
+                  onClick={() => dispatch(removeTaskItem(task.id))}
+                  size="sm"
+                  className="mr-3"
+                >
+                  <FaTrash />
+                </Button>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={() => handleEditClick(task)}
+                >
+                  <FaPen />
+                </Button>
+              </div>
+            </article>
+          ))}
       </div>
       {selectedTask && (
         <EditTask
