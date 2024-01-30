@@ -41,7 +41,7 @@ const Tasks = () => {
           <Col md={6}>
             <Form.Group controlId="statusFilter" className="mt-3 ">
               <Form.Label className="d-flex justify-content-center">
-                Status Filter
+                <h2> Status Filter</h2>
               </Form.Label>
               <Form.Control
                 as="select"
