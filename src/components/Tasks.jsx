@@ -74,10 +74,14 @@ const Tasks = () => {
             <div>
               <h4>{task.title}</h4>
               <p style={{ overflow: 'auto' }}>
-                Description: {task.description}
+                <strong> Description:</strong> {task.description}
               </p>
-              <p>Due Date: {task.dueDate}</p>
-              <p>Status: {task.status}</p>
+              <p>
+                <strong>Due Date:</strong> {task.dueDate}
+              </p>
+              <p>
+                <strong> Status:</strong> {task.status}
+              </p>
             </div>
 
             <div className="d-flex justify-content-between align-items-center mt-3">
